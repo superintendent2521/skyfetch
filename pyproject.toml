@@ -3,8 +3,8 @@ requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "skyfall"
-version = "0.1.0"
+name = "sky_fall"
+version = "1.0"
 description = "Lightweight client for fetching current weather from OpenWeatherMap."
 readme = "README.md"
 requires-python = ">=3.8"
