@@ -1,10 +1,9 @@
 [build-system]
 requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
-
 [project]
 name = "sky-fall"
-version = "1.0"
+version = "0.2.0"
 description = "Lightweight client for fetching current weather from OpenWeatherMap."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -31,9 +30,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/superintendent2521/skyfall"
-Documentation = "https://github.com/superintendent2521/skyfall#readme"
+Homepage = "https://github.com/superintendent2521/sky-fall"
+Documentation = "https://github.com/superintendent2521/sky-fall#readme"
 
 [tool.setuptools.packages.find]
-include = ["sky-fall"]
+include = ["skyfall"]
 exclude = ["tests", "docs"]
