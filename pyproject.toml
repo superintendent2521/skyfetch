@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT License"}
 authors = [
-  {name = "RhysW"}
+  {name = "Superintendent"}
 ]
 dependencies = [
   "requests>=2.31.0,<3.0.0"
@@ -31,8 +31,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/example/sky_fetch"
-Documentation = "https://github.com/example/sky_fetch#readme"
+Homepage = "https://github.com/superintendent2521/skyfetch"
+Documentation = "https://github.com/superintendent2521/skyfetch#readme"
 
 [tool.setuptools.packages.find]
 include = ["sky_fetch"]
