@@ -1,3 +1,5 @@
-dist/*
+dist/
+build/
+*.egg-info/
+__pycache__/
 build.txt
-sky_fall.egg-info/*

@@ -8,7 +8,7 @@ from typing import Any, Dict
 import requests
 
 
-class SkyFetchError(Exception):
+class SkyFallError(Exception):
     """Raised when the weather lookup fails."""
 
 
@@ -24,7 +24,7 @@ class WeatherReport:
     raw: Dict[str, Any]
 
 
-class SkyFetch:
+class SkyFall:
     """
     Tiny wrapper around the OpenWeatherMap current weather API.
 
@@ -68,7 +68,7 @@ class SkyFetch:
         ------
         ValueError
             If the city value is empty.
-        SkyFetchError
+        SkyFallError
             If OpenWeatherMap rejects the request or the request fails.
         """
 
@@ -86,11 +86,11 @@ class SkyFetch:
                 timeout=self._timeout,
             )
         except requests.RequestException as exc:
-            raise SkyFetchError("Could not reach OpenWeatherMap.") from exc
+            raise SkyFallError("Could not reach OpenWeatherMap.") from exc
 
         if response.status_code != 200:
             error_detail = _extract_error(response)
-            raise SkyFetchError(error_detail)
+            raise SkyFallError(error_detail)
 
         payload = _parse_json(response)
 
@@ -108,7 +108,7 @@ class SkyFetch:
                 raw=payload,
             )
         except (TypeError, ValueError) as exc:
-            raise SkyFetchError("Received malformed data from OpenWeatherMap.") from exc
+            raise SkyFallError("Received malformed data from OpenWeatherMap.") from exc
 
         return report
 
@@ -137,4 +137,4 @@ def _parse_json(response: requests.Response) -> Dict[str, Any]:
         return response.json()
     except ValueError as exc:
         snippet = response.text[:200]
-        raise SkyFetchError(f"Failed to parse response JSON: {snippet}") from exc
+        raise SkyFallError(f"Failed to parse response JSON: {snippet}") from exc

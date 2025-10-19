@@ -1,11 +1,11 @@
-# sky_fetch
+# skyfall
 
-Minimal Python client for the [OpenWeatherMap](https://openweathermap.org/api) current weather endpoint. It keeps the public interface intentionally tiny—instantiate `SkyFetch` with your API key, then call `.weather("City Name")` for a structured weather snapshot.
+Minimal Python client for the [OpenWeatherMap](https://openweathermap.org/api) current weather endpoint. It keeps the public interface intentionally tiny: instantiate `SkyFall` with your API key, then call `.weather("City Name")` for a structured weather snapshot.
 
 ## Installation
 
 ```bash
-pip install sky_fetch
+pip install skyfall
 ```
 
 > **Note:** The package requires Python 3.8 or newer and the `requests` library, which is installed automatically.
@@ -14,14 +14,14 @@ pip install sky_fetch
 
 1. Sign up for a free OpenWeatherMap account.
 2. Generate an API key from the dashboard.
-3. Provide that key when creating a `SkyFetch` instance.
+3. Provide that key when creating a `SkyFall` instance.
 
 ## Usage
 
 ```python
-from sky_fetch import SkyFetch
+from skyfall import SkyFall
 
-client = SkyFetch(api_key="your-openweather-api-key")
+client = SkyFall(api_key="your-openweather-api-key")
 
 report = client.weather("Berlin")
 
@@ -33,7 +33,7 @@ print(report.description)     # e.g. "broken clouds"
 By default results use metric units. Pass `units="imperial"` or `units="standard"` when instantiating the client to change that. Set a custom timeout via the `timeout` keyword if desired.
 
 ```python
-SkyFetch(api_key="...", units="imperial", timeout=5)
+SkyFall(api_key="...", units="imperial", timeout=5)
 ```
 
 ## Returned data
@@ -50,7 +50,7 @@ Access the raw payload if you need additional fields not surfaced on the datacla
 
 ## Error handling
 
-Network or API issues raise `SkyFetchError`. Double-check your API key, usage limits, and spelling of the city name if you encounter errors. Invalid arguments raise `ValueError`.
+Network or API issues raise `SkyFallError`. Double-check your API key, usage limits, and spelling of the city name if you encounter errors. Invalid arguments raise `ValueError`.
 
 ## Local development
 
@@ -63,7 +63,7 @@ pip install -e .[dev]
 Run a quick manual check:
 
 ```bash
-python -c "from sky_fetch import SkyFetch; print(SkyFetch(api_key='YOUR_KEY').weather('Tokyo'))"
+python -c "from skyfall import SkyFall; print(SkyFall(api_key='YOUR_KEY').weather('Tokyo'))"
 ```
 
 ## Publishing
